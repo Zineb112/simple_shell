@@ -16,3 +16,27 @@ unsigned int _strlen(const char *str)
 	}
 	return (length);
 }
+
+
+/**
+ * _strcat - concatenates two strings.
+ * @str_1: the last string will be stored here.
+ * @str_2: the string to be appended
+ */
+void _strcat(char *str_1, char *str_2)
+{
+	while (*str_1 != '\0')
+	{
+		str_1++;
+	}
+
+	while (*str_2 != '\0')
+	{
+		*str_1 = *str_2;
+		str_1++;
+		str_2++;
+	}
+
+
+	*str_1 = '\0';
+}
