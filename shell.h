@@ -16,4 +16,7 @@
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
 
+/* Strings handling function */
+unsigned int _strlen(const char *str);
+
 #endif
