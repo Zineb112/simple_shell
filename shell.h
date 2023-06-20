@@ -19,5 +19,5 @@
 /* Strings handling function */
 unsigned int _strlen(const char *str);
 void _strcat(char *str_1, char *str_2);
-
+int _strcmp(char *str_1, char *str_2);
 #endif

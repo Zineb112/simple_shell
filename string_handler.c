@@ -40,3 +40,27 @@ void _strcat(char *str_1, char *str_2)
 
 	*str_1 = '\0';
 }
+
+/**
+ * _strcmp - compare two strings.
+ * @str_1: First string.
+ * @str_2: second string.
+ * Return: 0 if the strings are equal, o
+ * therwis somthing else.
+ */
+int _strcmp(char *str_1, char *str_2)
+{
+	while (*str_1 != '\0' && *str_2 != '\0')
+	{
+		if (*str_1 != *str_2)
+		{
+			return (*str_1 - *str_2);
+		}
+
+		str_1++;
+		str_2++;
+	}
+	return (*str_1 - *str_2);
+}
+
+
