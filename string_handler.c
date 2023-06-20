@@ -64,3 +64,19 @@ int _strcmp(char *str_1, char *str_2)
 }
 
 
+
+/**
+ * _strcpy - copy a string to another.
+ * @dest: string 1.
+ * @src: string 2.
+ */
+void _strcpy(char *dest, char *src)
+{
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+}
