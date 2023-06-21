@@ -21,5 +21,9 @@ unsigned int _strlen(const char *str);
 void _strcat(char *str_1, char *str_2);
 int _strcmp(char *str_1, char *str_2);
 void _strcpy(char *desr, char *src);
+void _puts(const char *str);
+int _putchar(char c);
+char* _strtok(char* str, const char* delimiters);
+ssize_t _getline(char **line, size_t *n, FILE *stream);
 
 #endif
