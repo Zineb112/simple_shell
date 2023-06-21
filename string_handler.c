@@ -66,6 +66,38 @@ int _strcmp(char *str_1, char *str_2)
 
 
 /**
+ * _strncmp - compare n characters of two given strings.
+ * @str_1: First string.
+ * @str_2: second string.
+ * @n: the maximum number of characters to compare.
+ * Return: 0 if the strings are equal, o
+ * therwis somthing else.
+ */
+int _strncmp(char *str_1, char *str_2, size_t n)
+{
+	while (n > 0 && *str_1 != '\0' && *str_2 != '\0')
+	{
+		if (*str_1 != *str_2)
+		{
+			return (*str_1 - *str_2);
+		}
+
+		str_1++;
+		str_2++;
+		n--;
+	}
+
+	if (n == 0)
+	{
+		return (0);
+	}
+
+	return (*str_1 - *str_2);
+}
+
+
+
+/**
  * _strcpy - copy a string to another.
  * @dest: string 1.
  * @src: string 2.
