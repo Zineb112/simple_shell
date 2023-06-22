@@ -23,7 +23,7 @@ char *_strtok(char *str, const char *delimiters)
 		if (*delim_pos == *delimiters)
 {
 			*delim_pos = '\0';
-			tokens = delimi_pos + 1;
+			tokens = delim_pos + 1;
 			return (token1);
 		}
 		delim_pos++;
@@ -32,3 +32,22 @@ char *_strtok(char *str, const char *delimiters)
 	tokens = NULL;
 	return (token1);
 }
+
+
+
+
+
+
+int main() {
+    char str[] = "Hello World!";
+    const char delimiters[] = " ";
+
+    char *token = _strtok(str, delimiters);
+    while (token != NULL) {
+        printf("%s\n", token);
+        token = _strtok(NULL, delimiters);
+    }
+
+    return (0);
+}
+
