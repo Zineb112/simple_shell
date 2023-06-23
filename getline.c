@@ -51,19 +51,18 @@ ssize_t _getline(char **line, size_t *n, FILE *stream)
 	return (nbr_char);
 }
 
-
 int main() {
 	char *line = NULL;
 	size_t buffer_size = 0;
-	
+
 	printf("Enter a line: ");
 	ssize_t num_chars = _getline(&line, &buffer_size, stdin);
-	
+
 	if (num_chars != -1) {
 		printf("Line read: %s", line);
 		printf("Number of characters: %zd\n", num_chars);
 	}
-	
+
 	free(line);
 	return (0);
 }
