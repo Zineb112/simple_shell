@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * _getline - read string of text.
+ * @line: dynamically allocated buffer.
+ * @n: number of characters in the line.
+ * @stream: the file to read from.
+ * Return: number of characters read
+ * and stored in the buffer.
+ */
 ssize_t _getline(char **line, size_t *n, FILE *stream)
 {
 	size_t bf_size = 32;
@@ -7,23 +15,24 @@ ssize_t _getline(char **line, size_t *n, FILE *stream)
 	int c;
 
 	if (*line == NULL)
-{
+	{
 		*line = malloc(bf_size * sizeof(char));
 		if (*line == NULL)
-{
+		{
 			perror("malloc failed");
 			exit(EXIT_FAILURE);
 		}
 	}
 	while ((c = fgetc(stream)) != EOF)
-{
+	{
 		if (nbr_char >= bf_size - 1)
-{
+		{
 			bf_size *= 2;
 			char *temp = realloc(*line, bf_size * sizeof(char));
 
 			if (temp == NULL)
-			{	perror("realloc failed");
+			{
+				perror("realloc failed");
 				exit(EXIT_FAILURE);
 			}
 			*line = temp;
@@ -33,7 +42,6 @@ ssize_t _getline(char **line, size_t *n, FILE *stream)
 		if (c == '\n')
 			break;
 	}
-
 	if (nbr_char == 0)
 		return (-1);
 
@@ -43,20 +51,19 @@ ssize_t _getline(char **line, size_t *n, FILE *stream)
 	return (nbr_char);
 }
 
+
 int main() {
 	char *line = NULL;
 	size_t buffer_size = 0;
-
+	
 	printf("Enter a line: ");
 	ssize_t num_chars = _getline(&line, &buffer_size, stdin);
-
+	
 	if (num_chars != -1) {
 		printf("Line read: %s", line);
 		printf("Number of characters: %zd\n", num_chars);
 	}
-
+	
 	free(line);
-	return 0;
+	return (0);
 }
-
-
