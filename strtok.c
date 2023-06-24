@@ -41,19 +41,19 @@ char *_strtok(char *str, const char *delimiters)
 	return (token1);
 }
 
+char **split_string(char *str, char *delimiters)
+{
+	int i = 0;
+	char **second_tokens;
+	char *first_token = _strtok(str, delimiters);
 
-
-
-int main() {
-        char str[] = "Hello World of C language";
-        const char delimiters[] = " ";
-
-        char *token = _strtok(str, delimiters);
-        while (token != NULL) {
-                printf("%s\n", token);
-                token = _strtok(NULL, delimiters);
-        }
-
-        return (0);
+	second_tokens = malloc(sizeof(char *) * 1024);
+	while (first_token != NULL)
+	{
+		second_tokens[i++] = first_token;
+		first_token = _strtok(NULL, delimiters);
+	}
+second_tokens[i] = NULL;
+	return (tokens);
 }
 
