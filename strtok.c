@@ -41,19 +41,26 @@ char *_strtok(char *str, const char *delimiters)
 	return (token1);
 }
 
+/**
+ * split_string - check code.
+ * @str: string to split.
+ * @delimiters: charactaer.
+ * Return: splited string.
+ */
+
 char **split_string(char *str, char *delimiters)
 {
-	int i = 0;
+	int x = 0;
 	char **second_tokens;
 	char *first_token = _strtok(str, delimiters);
 
 	second_tokens = malloc(sizeof(char *) * 1024);
 	while (first_token != NULL)
 	{
-		second_tokens[i++] = first_token;
+		second_tokens[x++] = first_token;
 		first_token = _strtok(NULL, delimiters);
 	}
-second_tokens[i] = NULL;
-	return (tokens);
-}
 
+	second_tokens[x] = NULL;
+	return (second_tokens);
+}

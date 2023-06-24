@@ -23,11 +23,16 @@ int _strcmp(char *str_1, char *str_2);
 void _strcpy(char *desr, char *src);
 int _strncmp(char *str_1, char *str_2, size_t n);
 
+
+/* printing functions */
 void _puts(const char *str);
 int _putchar(char c);
 
+/* split string functions */
 char* _strtok(char* str, const char* delimiters);
+char **split_string(char *str, char *delimiters);
 
+/* our getline function */
 ssize_t _getline(char **line, size_t *n, FILE *stream);
 
 /* environment variables handling */
