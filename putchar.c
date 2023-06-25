@@ -1,5 +1,4 @@
 #include "shell.h"
-#include <unistd.h>
 
 /**
  * _putchar - writes string to stdout
@@ -11,4 +10,17 @@
 int _putchar(char c)
 {
 		return (write(1, &c, 1));
+}
+
+/**
+ * str_print - use putchar to print a string.
+ * @str: string to pring.
+ */
+void str_print(char *str)
+{
+	while (*str)
+	{
+		_putchar(*str);
+		str++;
+	}
 }

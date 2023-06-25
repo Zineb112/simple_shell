@@ -27,6 +27,8 @@ int _strncmp(char *str_1, char *str_2, size_t n);
 /* printing functions */
 void _puts(const char *str);
 int _putchar(char c);
+void str_print(char *str);
+
 
 /* split string functions */
 char* _strtok(char* str, const char* delimiters);
@@ -43,9 +45,6 @@ char *_getenv(const char *name);
 char *getcmd(char *cmd);
 char **split_string(char *buffer, char *del);
 int main(int ac, char **av, char **env);
-
-
-
 
 
 #endif

@@ -15,5 +15,4 @@ void _puts(const char *str)
 		str++;
 	}
 	_putchar('\n');
-	return (0);
 }
