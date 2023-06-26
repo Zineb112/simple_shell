@@ -2,10 +2,11 @@
 #include <string.h>
 
 /**
- *_realloc – reallocate size of a pointer
- *@ptr: pointer to change size
- *@size: old size of ptr
- *Return: new pointer
+ * _realloc – reallocate size of a pointer
+ * Description: 'resize a pointer ptr'
+ * @ptr: pointer to change size
+ * @size: old size of ptr
+ * Return: new pointer
  */
 
 
