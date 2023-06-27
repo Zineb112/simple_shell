@@ -12,7 +12,7 @@ char *getcmd(char *cmd)
 	char *cmd_path;
 	struct stat st;
 
-	token = strtok(path, ":");
+	token = str_tok(path, ":");
 	while (token)
 	{
 		cmd_path = malloc(_strlen(token) + _strlen(cmd) + 2);
@@ -25,7 +25,7 @@ char *getcmd(char *cmd)
 			return (cmd_path);
 		}
 		free(cmd_path);
-		token = strtok(NULL, ":");
+		token = str_tok(NULL, ":");
 	}
 	return (NULL);
 }
