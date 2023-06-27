@@ -33,6 +33,8 @@ void str_print(char *str);
 
 /* split string functions */
 char *str_tok(char str[], char *delim);
+unsigned int is_delim(char c, char *delim);
+char *_strtok(char *srcString, char *delim);
 char **split_string(char *str, char *delimiters);
 
 /* our getline function */

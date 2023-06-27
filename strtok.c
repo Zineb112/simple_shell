@@ -1,53 +1,69 @@
 #include "shell.h"
+#define _ISOC99_SOURCE
 
 /**
- * str_tok - split string.
- * @str: string to split.
+ * _strtok - split string.
+ * @srcString: string to split.
  * @delim: separator.
  * Return: splited strings.
  */
-char *str_tok(char str[], char *delim)
+char *_strtok(char *srcString, char *delim)
 {
-	static char *split_ted, *end_str;
-	char *start_str;
-	unsigned int i, bol;
+	static char *backup_string;
+	char *ret;
 
-	if (str != NULL)
-	{
-		if (!_strcmp(str, delim))
-			return (NULL);
-		split_ted = str;
-		i = strlen(str);
-		end_str = &str[i];
-		printf("%s\n", str);
-	}
-	start_str = split_ted;
-	if (start_str == end_str)
+	if (!srcString)
+		srcString = backup_string;
+	if (!srcString)
 		return (NULL);
 
-	for (bol = 0; *split_ted && split_ted != end_str; split_ted++)
+	while (1)
 	{
-		if (split_ted != start_str)
-			if (*split_ted && *(split_ted - 1) == '\0')
-				break;
-		for (i = 0; delim[i]; i++)
+		if (is_delim(*srcString, delim))
 		{
-			if (*split_ted == delim[i])
-			{
-				*split_ted = '\0';
-				if (split_ted == start_str)
-					start_str++;
-				break;
-			}
+			srcString++;
+			continue;
 		}
-		if (bol == 0 && *split_ted)
-			bol = 1;
-	}
-	if (bol == 0)
-		return (NULL);
-	return (start_str);
-}
 
+		if (*srcString == '\0')
+			return (NULL);
+		break;
+	}
+
+	ret = srcString;
+
+	while (1)
+	{
+		if (*srcString == '\0')
+		{
+			backup_string = srcString;
+			return (ret);
+		}
+		if (is_delim(*srcString, delim))
+		{
+			*srcString = '\0';
+			backup_string = srcString + 1;
+			return (ret);
+		}
+		srcString++;
+	}
+}
+/**
+ * is_delim - check if delimter.
+ * @c: char to check.
+ * @delim: the delimiter.
+ * Return: if delim gives 1, if not give 0.
+ */
+unsigned int is_delim(char c, char *delim)
+{
+	while (*delim != '\0')
+	{
+		if (c == *delim)
+			return (1);
+		delim++;
+	}
+	return (0);
+}
 
 /**
  * split_string - check code.
@@ -62,7 +78,7 @@ char **split_string(char *str, char *delimiter)
 	int i = 0;
 
 	ptr_token = malloc(sizeof(char *) * 1024);
-	token = strtok(str, delimiter);
+	token = _strtok(str, delimiter);
 	while (token)
 	{
 		ptr_token[i] = token;

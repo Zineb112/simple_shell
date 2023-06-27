@@ -1,5 +1,4 @@
 #include "shell.h"
-#define _ISOC99_SOURCE
 
 /**
  * getcmd - get cmd that user enter.
