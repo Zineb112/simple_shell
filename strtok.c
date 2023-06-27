@@ -6,7 +6,7 @@
  * @delim: separator.
  * Return: splited strings.
  */
-char *str_tok(char str[], const char *delim)
+char *str_tok(char str[], char *delim)
 {
 	static char *split_ted, *end_str;
 	char *start_str;

@@ -7,11 +7,12 @@
  */
 char *getcmd(char *cmd)
 {
-	char *path = _getenv("PATH");
+	char *path;
 	char *token;
 	char *cmd_path;
 	struct stat st;
 
+	path = _getenv("PATH");
 	token = str_tok(path, ":");
 	while (token)
 	{
@@ -54,6 +55,7 @@ int main(int ac, char **av, char **env)
 	buffer = NULL;
 	buffer_size = 0;
 	msg = "This command does not exist\n";
+	
 	while (1)
 	{
 		write(1, "$ ", 2);
