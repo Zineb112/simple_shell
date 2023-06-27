@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
+/* read - write buffers */
 #define READ_BUF_SIZE 1024
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
@@ -31,7 +32,7 @@ void str_print(char *str);
 
 
 /* split string functions */
-char *str_tok(char *str, char *delimiters);
+char *str_tok(char str[], char *delim);
 char **split_string(char *str, char *delimiters);
 
 /* our getline function */
@@ -40,6 +41,8 @@ ssize_t _getline(char **line, size_t *n, FILE *stream);
 /* environment variables handling */
 int _setenv(char *env_name, char *env_val, int status, char ***environ_ptr);
 
+
+/* Golbal variable */
 extern char **environ;
 
 char *_getenv(char *name);
