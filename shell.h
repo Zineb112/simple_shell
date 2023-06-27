@@ -47,5 +47,7 @@ char *getcmd(char *cmd);
 char **split_string(char *buffer, char *del);
 int main(int ac, char **av, char **env);
 
+/*realloc */
+void *_realloc(void *ptr, size_t size);
 
 #endif
