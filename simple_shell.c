@@ -41,23 +41,18 @@ char *getcmd(char *cmd)
  * Return: Always 0.
  */
 int main(int ac, char **av, char **env)
-{   
-
-	char *buffer;
-        size_t buffer_size;
-        char *cmd;
-        char **arg;
-        pid_t pid;
-        int check, chars_num;
-        char *msg;
-   	(void)ac;
+{
+	size_t buffer_size;
+	char *cmd, **arg, *buffer, *msg;
+	pid_t pid;
+	int check, chars_num;
+	(void)ac;
 	(void)av;
 	(void)env;
-
 	buffer = NULL;
 	buffer_size = 0;
 	msg = "This command does not exist\n";
-	
+
 	while (1)
 	{
 		write(1, "$ ", 2);
@@ -75,9 +70,7 @@ int main(int ac, char **av, char **env)
 		{
 			cmd = getcmd(arg[0]);
 			if (cmd)
-			{
 				execve(cmd, arg, NULL);
-			}
 			else
 				str_print(msg);
 			exit(0);
