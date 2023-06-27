@@ -1,15 +1,14 @@
 #include "shell.h"
 
 /**
- * _getsize – reallocate size of a pointer.
- *
- * Description: 'resize a pointer ptr'.
- * @src: pointer to change size.
- * @destination: pointer to change size.
- * @size: pointer to change size.
- * Return: new pointer.
+ * _memcpy - check code.
+ * @destination: first pointer.
+ * @src: second pointer.
+ * @size: size memory.
+ * Return: destination.
  */
-void *_memcpy(void *destination, const void *src, size_t size) {
+void *_memcpy(void *destination, const void *src, size_t size)
+{
 	unsigned char *d = (unsigned char *)destination;
 	const unsigned char *s = (const unsigned char *)src;
 
@@ -22,17 +21,14 @@ void *_memcpy(void *destination, const void *src, size_t size) {
 }
 
 /**
- * _getsize – reallocate size of a pointer.
- *
- * Description: 'resize a pointer ptr'.
- *
- * @ptr: pointer to change size.
- *
- * Return: new pointer.
+ * _getsize - check code.
+ * @str: pointer.
+ * Return: size.
  */
 int _getsize(const char *str)
 {
 	int size = 0;
+
 	while (str[size] != '\0')
 	{
 		size++;
@@ -41,13 +37,9 @@ int _getsize(const char *str)
 }
 
 /**
- * _realloc – reallocate size of a pointer.
- *
- * Description: 'resize a pointer ptr'.
- *
- * @ptr: pointer to change size.
- * @size: old size of ptr.
- *
+ * _realloc - reallocate size of a pointer.
+ * @ptr: pointer.
+ * @size: memory size.
  * Return: new pointer.
  */
 void *_realloc(void *ptr, size_t size)
