@@ -31,7 +31,7 @@ void str_print(char *str);
 
 
 /* split string functions */
-char *str_tok(char* str, char* delimiters);
+char *str_tok(char *str, char *delimiters);
 char **split_string(char *str, char *delimiters);
 
 /* our getline function */
