@@ -13,10 +13,10 @@ char *_getenv(char *env_name)
 	x = 0;
 	while (environ[x])
 	{
-		key = str_tok(environ[x], "=");
+		key = strtok(environ[x], "=");
 		if (_strcmp(env_name, key) == 0)
 		{
-			return (str_tok(NULL, "\n"));
+			return (strtok(NULL, "\n"));
 		}
 		x++;
 	}

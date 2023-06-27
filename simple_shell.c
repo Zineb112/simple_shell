@@ -14,7 +14,7 @@ char *getcmd(char *cmd)
 	struct stat st;
 
 	path = _getenv("PATH");
-	token = str_tok(path, ":");
+	token = strtok(path, ":");
 	while (token)
 	{
 		cmd_path = malloc(_strlen(token) + _strlen(cmd) + 2);
@@ -27,7 +27,7 @@ char *getcmd(char *cmd)
 			return (cmd_path);
 		}
 		free(cmd_path);
-		token = str_tok(NULL, ":");
+		token = strtok(NULL, ":");
 	}
 	return (NULL);
 }
@@ -52,6 +52,7 @@ int main(int ac, char **av, char **env)
         char *msg;
    	(void)ac;
 	(void)av;
+	(void)env;
 
 	buffer = NULL;
 	buffer_size = 0;
@@ -74,7 +75,9 @@ int main(int ac, char **av, char **env)
 		{
 			cmd = getcmd(arg[0]);
 			if (cmd)
-				execve(cmd, arg, env);
+			{
+				execve(cmd, arg, NULL);
+			}
 			else
 				str_print(msg);
 			exit(0);
