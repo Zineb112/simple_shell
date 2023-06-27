@@ -5,9 +5,8 @@
  * @env_name: variable's name.
  * Return: NULL.
  */
-char *_getenv(const char *env_name)
+char *_getenv(char *env_name)
 {
-	extern char **environ;
 	int x;
 	char *key;
 
@@ -15,7 +14,7 @@ char *_getenv(const char *env_name)
 	while (environ[x])
 	{
 		key = strtok(environ[x], "=");
-		if (strcmp(env_name, key) == 0)
+		if (_strcmp(env_name, key) == 0)
 		{
 			return (strtok(NULL, "\n"));
 		}

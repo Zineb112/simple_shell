@@ -40,8 +40,9 @@ ssize_t _getline(char **line, size_t *n, FILE *stream);
 /* environment variables handling */
 int _setenv(char *env_name, char *env_val, int status, char ***environ_ptr);
 
+extern char **environ;
 
-char *_getenv(const char *name);
+char *_getenv(char *name);
 char *getcmd(char *cmd);
 char **split_string(char *buffer, char *del);
 int main(int ac, char **av, char **env);
