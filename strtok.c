@@ -1,44 +1,51 @@
 #include "shell.h"
 
 /**
- * _strtok - split string.
+ * str_tok - split string.
  * @str: string to split.
- * @delimiters: separator.
+ * @delim: separator.
  * Return: splited strings.
  */
-char *_strtok(char *str, const char *delimiters)
+char *str_tok(char str[], const char *delim)
 {
-	static char *token1;
-	static char *tokens;
+	static char *split_ted, *end_str;
+	char *start_str;
+	unsigned int i, bol;
 
 	if (str != NULL)
 	{
-		token1 = str;
+		if (!_strcmp(str, delim))
+			return (NULL);
+		split_ted = str;
+		i = strlen(str);
+		end_str = &str[i];
+		printf("%s\n", str);
 	}
-	else if (tokens == NULL)
-	{
+	start_str = split_ted;
+	if (start_str == end_str)
 		return (NULL);
-	}
-	else
-	{
-		token1 = tokens;
-	}
 
-	char *delim_pos = token1;
-
-	while (*delim_pos != '\0')
+	for (bol = 0; *split_ted && split_ted != end_str; split_ted++)
 	{
-		if (*delim_pos == *delimiters)
+		if (split_ted != start_str)
+			if (*split_ted && *(split_ted - 1) == '\0')
+				break;
+		for (i = 0; delim[i]; i++)
 		{
-			*delim_pos = '\0';
-			tokens = delim_pos + 1;
-			return (token1);
+			if (*split_ted == delim[i])
+			{
+				*split_ted = '\0';
+				if (split_ted == start_str)
+					start_str++;
+				break;
+			}
 		}
-		delim_pos++;
+		if (bol == 0 && *split_ted)
+			bol = 1;
 	}
-	tokens = NULL;
-
-	return (token1);
+	if (bol == 0)
+		return (NULL);
+	return (start_str);
 }
 
 
