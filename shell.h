@@ -49,5 +49,7 @@ int main(int ac, char **av, char **env);
 
 /*realloc */
 void *_realloc(void *ptr, size_t size);
+void *_memcpy(void *destination, const void *src, size_t size);
+int _getsize(const char *str);
 
 #endif

@@ -11,8 +11,9 @@
 ssize_t _getline(char **line, size_t *n, FILE *stream)
 {
 	size_t bf_size = 32;
-	ssize_t nbr_char = 0;
+	size_t nbr_char = 0;
 	int c;
+	char *temp;
 
 	if (*line == NULL)
 	{
@@ -28,7 +29,7 @@ ssize_t _getline(char **line, size_t *n, FILE *stream)
 		if (nbr_char >= bf_size - 1)
 		{
 			bf_size *= 2;
-			char *temp = realloc(*line, bf_size * sizeof(char));
+			temp = realloc(*line, bf_size * sizeof(char));
 
 			if (temp == NULL)
 			{

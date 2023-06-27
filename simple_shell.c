@@ -43,14 +43,17 @@ int main(int ac, char **av, char **env)
 	(void)ac;
 	(void)av;
 
-	char *buffer = NULL;
-	size_t buffer_size = 0;
+	char *buffer;
+	size_t buffer_size;
 	char *cmd;
 	char **arg;
 	pid_t pid;
 	int check, chars_num;
-	char *msg = "This command does not exist\n";
+	char *msg;
 
+	buffer = NULL;
+	buffer_size = 0;
+	msg = "This command does not exist\n";
 	while (1)
 	{
 		write(1, "$ ", 2);
