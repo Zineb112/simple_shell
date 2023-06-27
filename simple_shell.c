@@ -1,4 +1,5 @@
 #include "shell.h"
+#define _ISOC99_SOURCE
 
 /**
  * getcmd - get cmd that user enter.
@@ -40,17 +41,17 @@ char *getcmd(char *cmd)
  * Return: Always 0.
  */
 int main(int ac, char **av, char **env)
-{
-	(void)ac;
-	(void)av;
+{   
 
 	char *buffer;
-	size_t buffer_size;
-	char *cmd;
-	char **arg;
-	pid_t pid;
-	int check, chars_num;
-	char *msg;
+        size_t buffer_size;
+        char *cmd;
+        char **arg;
+        pid_t pid;
+        int check, chars_num;
+        char *msg;
+   	(void)ac;
+	(void)av;
 
 	buffer = NULL;
 	buffer_size = 0;
