@@ -51,8 +51,7 @@ void exec_env(int status, char **args, int *exit_st, int *taly)
 			perror(args[0]);
 			*exit_st = 127;
 		}
-		else if (access(args[0], F_OK) == 0 &&
-			 access(args[0], X_OK) != 0)
+		else if (access(args[0], F_OK) == 0 && access(args[0], X_OK) != 0)
 		{
 			printstr_("sh: ");
 			print_int(taly);
