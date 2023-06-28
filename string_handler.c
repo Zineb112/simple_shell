@@ -15,11 +15,13 @@ int str_len(char *strg)
 	return (j);
 }
 
+
+
 /**
- * str_cmp – compare 2strgs
- * @str1: string nbr one
- * @str2: string nbr two
- * Return: compare two strgs
+ * str_cmp - comper strings.
+ * @str1: first string.
+ * @str2: second string.
+ * Return: 0 if equal,otherwise other.
  */
 int str_cmp(char *str1, char *str2)
 {
