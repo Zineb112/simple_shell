@@ -2,6 +2,23 @@
 #define _ISOC99_SOURCE
 
 /**
+ * is_delim - check if delimter.
+ * @c: char to check.
+ * @delim: the delimiter.
+ * Return: if delim gives 1, if not give 0.
+ */
+unsigned int is_delim(char c, char *delim)
+{
+        while (*delim != '\0')
+        {
+                if (c == *delim)
+                        return (1);
+                delim++;
+        }
+        return (0);
+}
+
+/**
  * _strtok - split string.
  * @srcString: string to split.
  * @delim: separator.
@@ -47,22 +64,6 @@ char *_strtok(char *srcString, char *delim)
 		}
 		srcString++;
 	}
-}
-/**
- * is_delim - check if delimter.
- * @c: char to check.
- * @delim: the delimiter.
- * Return: if delim gives 1, if not give 0.
- */
-unsigned int is_delim(char c, char *delim)
-{
-	while (*delim != '\0')
-	{
-		if (c == *delim)
-			return (1);
-		delim++;
-	}
-	return (0);
 }
 
 /**
