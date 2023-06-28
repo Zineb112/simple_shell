@@ -22,7 +22,7 @@ int main(int argc, char **argv, char **env)
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, prpt, 6);
 
-		read = getline(&c_lin, &len, stdin);
+		read = _getline(&c_lin, &len, stdin);
 		++tally;
 		if (char_special(c_lin, read, &exit_stat) == 127)
 			continue;
