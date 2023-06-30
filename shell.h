@@ -56,11 +56,6 @@ int _getsize(const char *str);
 void _puts(const char *str);
 int _putchar(char c);
 
-/*setenv unsetenv*/
-void _setenv(char **arr);
-void _unsetenv(char **arr);
-char *get_env(const char *glob_v);
-char *concatenat(char *glob_v, char *valeur1, char *valeur);
 
 #endif
 
